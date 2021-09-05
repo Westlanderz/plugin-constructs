@@ -6,23 +6,16 @@
 
 #include <string>
 
+#define JSON_USE_IMPLICIT_CONVERSIONS 0
 #include <nlohmann/json.hpp>
 
 #include <discordpp/bot.hh>
 
-#include "discordpp/types/nonce.hh"
-#include "discordpp/constructs/sticker.hh"
-#include "discordpp/util/construct.hh"
+#include "sticker.hh"
+#include "../util/construct.hh"
 #include "todo.hh"
 
 namespace discordpp {
-
-enum MessageActivityType : int{
-    JOIN [[maybe_unused]] = 1,
-    SPECTATE [[maybe_unused]] = 2,
-    LISTEN [[maybe_unused]] = 3,
-    JOIN_REQUEST [[maybe_unused]] = 5
-};
 
 // clang-format off
 #define CONSTRUCTNAME MessageActivity
@@ -32,10 +25,10 @@ enum MessageActivityType : int{
 // clang-format on
 
 class CONSTRUCTNAME : public util::ConstructIn {
-#include "discordpp/CONSTRUCTIN/POPULATEVARS.hh"
+#include "../CONSTRUCTIN/POPULATEVARS.hh"
 };
 
-#include "discordpp/CONSTRUCTIN/FROMJSON.hh"
+#include "../CONSTRUCTIN/FROMJSON.hh"
 
 #undef CONSTRUCTKEYS
 #undef CONSTRUCTNAME
@@ -51,10 +44,10 @@ class CONSTRUCTNAME : public util::ConstructIn {
 // clang-format on
 
 class CONSTRUCTNAME : public util::ConstructIn {
-#include "discordpp/CONSTRUCTIN/POPULATEVARS.hh"
+#include "../CONSTRUCTIN/POPULATEVARS.hh"
 };
 
-#include "discordpp/CONSTRUCTIN/FROMJSON.hh"
+#include "../CONSTRUCTIN/FROMJSON.hh"
 
 #undef CONSTRUCTKEYS
 #undef CONSTRUCTNAME
@@ -68,42 +61,13 @@ class CONSTRUCTNAME : public util::ConstructIn {
 // clang-format on
 
 class CONSTRUCTNAME : public util::ConstructIn {
-#include "discordpp/CONSTRUCTIN/POPULATEVARS.hh"
+#include "../CONSTRUCTIN/POPULATEVARS.hh"
 };
 
-#include "discordpp/CONSTRUCTIN/FROMJSON.hh"
+#include "../CONSTRUCTIN/FROMJSON.hh"
 
 #undef CONSTRUCTKEYS
 #undef CONSTRUCTNAME
-
-
-enum MessageType : int{
-    DEFAULT [[maybe_unused]] = 0,
-    RECIPIENT_ADD [[maybe_unused]] = 1,
-    RECIPIENT_REMOVE [[maybe_unused]] = 2,
-    CALL [[maybe_unused]] = 3,
-    CHANNEL_NAME_CHANGE [[maybe_unused]] = 4,
-    CHANNEL_ICON_CHANGE [[maybe_unused]] = 5,
-    CHANNEL_PINNED_MESSAGE  [[maybe_unused]] = 6,
-    GUILD_MEMBER_JOIN  [[maybe_unused]] = 7,
-    USER_PREMIUM_GUILD_SUBSCRIPTION  [[maybe_unused]] = 8,
-    USER_PREMIUM_GUILD_SUBSCRIPTION_TIER_1  [[maybe_unused]] = 9,
-    USER_PREMIUM_GUILD_SUBSCRIPTION_TIER_2  [[maybe_unused]] = 10,
-    USER_PREMIUM_GUILD_SUBSCRIPTION_TIER_3  [[maybe_unused]] = 11,
-    CHANNEL_FOLLOW_ADD  [[maybe_unused]] = 12,
-    GUILD_DISCOVERY_DISQUALIFIED  [[maybe_unused]] = 14,
-    GUILD_DISCOVERY_REQUALIFIED  [[maybe_unused]] = 15,
-    REPLY  [[maybe_unused]] = 19,
-    APPLICATION_COMMAND  [[maybe_unused]] = 20
-};
-
-enum MessageFlag : int{
-    CROSSPOSTED  [[maybe_unused]] = 1 << 0,
-    IS_CROSSPOST  [[maybe_unused]] = 1 << 1,
-    SUPPRESS_EMBEDS  [[maybe_unused]] = 1 << 2,
-    SOURCE_MESSAGE_DELETED  [[maybe_unused]] = 1 << 3,
-    URGENT  [[maybe_unused]] = 1 << 4
-};
 
 // clang-format off
 #define CONSTRUCTNAME Message
@@ -137,7 +101,7 @@ enum MessageFlag : int{
 // clang-format on
 
 class CONSTRUCTNAME : public util::ConstructIn {
-#include "discordpp/CONSTRUCTIN/POPULATEVARS.hh"
+#include "../CONSTRUCTIN/POPULATEVARS.hh"
     /*void get(const sptr<const handleWrite> &onWrite,
              const sptr<const handleReadX<Message>> &onRead);*/
 
@@ -224,7 +188,7 @@ class CONSTRUCTNAME : public util::ConstructIn {
     onRead);*/
 };
 
-#include "discordpp/CONSTRUCTIN/FROMJSON.hh"
+#include "../CONSTRUCTIN/FROMJSON.hh"
 
 #undef CONSTRUCTKEYS
 #undef CONSTRUCTNAME
